@@ -15,41 +15,51 @@
 </ion-header>
 
 <ion-content class="cards-bg social-cards" style="background: #e8e8e8;">
-  <ion-card *ngFor="let tweet of tweets">
 
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="{{tweet.userProfileUrl}}">
-      </ion-avatar>
-      <h2>{{tweet.username}}</h2>
-      <p>@{{tweet.userScreenName}}</p>
-    </ion-item>
-
-    <!--<img src="assets/img/advance-card-bttf.png">-->
-
-    <ion-card-content>
-      <p>{{tweet.tweet}}</p>
-    </ion-card-content>
-
+  <ion-grid>
     <ion-row>
-      <!--<ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='text'></ion-icon>
-          4 Comments
-        </button>
-      </ion-col>-->
-      <ion-col>
-        <button *ngIf="tweet.tweetUrls.length" ion-button color="primary" clear small icon-start>
-          <ion-icon name='link'></ion-icon>
-          {{tweet.tweetUrls}}
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          {{tweet.createdAt | timeAgo}}
-        </ion-note>
+      <ion-col col-md-6 offset-md-3>
+
+        <ion-card *ngFor="let tweet of tweets">
+
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="{{tweet.userProfileUrl}}">
+            </ion-avatar>
+            <h2>{{tweet.username}}</h2>
+            <p>@{{tweet.userScreenName}}</p>
+          </ion-item>
+
+          <!--<img src="assets/img/advance-card-bttf.png">-->
+
+          <ion-card-content>
+            <p>{{tweet.tweet}}</p>
+          </ion-card-content>
+
+          <ion-row>
+            <!--<ion-col>
+              <button ion-button color="primary" clear small icon-start>
+                <ion-icon name='text'></ion-icon>
+                4 Comments
+              </button>
+            </ion-col>-->
+            <ion-col>
+              <button *ngIf="tweet.tweetUrls.length" ion-button color="primary" clear small icon-start>
+                <ion-icon name='link'></ion-icon>
+                {{tweet.tweetUrls}}
+              </button>
+            </ion-col>
+            <ion-col align-self-center text-center>
+              <ion-note>
+                {{tweet.createdAt | timeAgo}}
+              </ion-note>
+            </ion-col>
+          </ion-row>
+
+        </ion-card>
+
       </ion-col>
     </ion-row>
+  </ion-grid>
 
-  </ion-card>
 </ion-content>

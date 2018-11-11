@@ -1,12 +1,13 @@
 {
   "name": "direct-feeds",
-  "app_id": "",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
   },
-  "proxies": [{
-    "path": "/api",
-    "proxyUrl": "https://immense-wildwood-76766.herokuapp.com/api"
-  }]
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://immense-wildwood-76766.herokuapp.com/api"
+    }
+  ]
 }
