@@ -9,6 +9,7 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
+    "ionic:build:after": "cp -r www/* docs/",
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
