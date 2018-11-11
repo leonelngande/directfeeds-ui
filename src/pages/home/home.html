@@ -24,7 +24,7 @@
 
           <ion-item>
             <ion-avatar item-start>
-              <img src="{{tweet.userProfileUrl}}">
+              <img src="{{(tweet.userProfileUrl).replace('http','https')}}">
             </ion-avatar>
             <h2>{{tweet.username}}</h2>
             <p>@{{tweet.userScreenName}}</p>
