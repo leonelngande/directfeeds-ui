@@ -4,23 +4,17 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import {Tweet} from '../../app/models/tweet.model';
 
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class RestProvider {
 
-  private apiUrl = '/api/feeds';
+  private apiUrl = 'https://immense-wildwood-76766.herokuapp.com/api';
 
   constructor(public http: HttpClient) {
     // console.log('Hello RestProvider Provider');
   }
 
   getTweets(): Observable<Array<Tweet>> {
-    return this.http.get(this.apiUrl)
+    return this.http.get(`${this.apiUrl}/feeds`)
       .pipe(
         map(this.extractData),
         catchError(this.handleError)
