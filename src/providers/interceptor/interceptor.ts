@@ -15,7 +15,7 @@ export class InterceptorProvider implements HttpInterceptor {
 
   // Intercepts all HTTP requests!
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+    console.log('inside interceptor');
     return next.handle(request).pipe(
       catchError(err => {
         let errorText = '';
@@ -37,20 +37,5 @@ export class InterceptorProvider implements HttpInterceptor {
         return _throw(err);
       })
     );
-  }
-
-  // Adds the token to your headers if it exists
-  private addToken(request: HttpRequest<any>, token: any) {
-    if (token) {
-      let clone: HttpRequest<any>;
-      clone = request.clone({
-        setHeaders: {
-          'x-access-token': token
-        }
-      });
-      return clone;
-    }
-
-    return request;
   }
 }
