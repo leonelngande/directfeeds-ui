@@ -19,7 +19,9 @@ import {TimeAgoPipe} from 'time-ago-pipe';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      mode: 'ios'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
