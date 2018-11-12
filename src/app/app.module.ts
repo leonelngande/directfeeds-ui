@@ -6,9 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { RestProvider } from '../providers/rest/rest';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TimeAgoPipe} from 'time-ago-pipe';
+import {Api} from '../providers/api/api';
+import {InterceptorProvider} from '../providers/interceptor/interceptor';
+import {FeedProvider} from '../providers/feed/feed';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     HomePage
   ],
   providers: [
+    Api,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorProvider, multi: true },
+    FeedProvider,
   ]
 })
 export class AppModule {}

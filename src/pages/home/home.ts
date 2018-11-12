@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, LoadingController, NavController} from 'ionic-angular';
-import {RestProvider} from '../../providers/rest/rest';
-import {Tweet} from '../../app/models/tweet.model';
+import {ITweet} from '../../app/models/tweet.model';
+import {FeedProvider} from '../../providers/feed/feed';
 
 @Component({
   selector: 'page-home',
@@ -9,13 +9,13 @@ import {Tweet} from '../../app/models/tweet.model';
 })
 export class HomePage {
 
-  tweets: Array<Tweet>;
+  tweets: Array<ITweet>;
   errorMessage: string;
 
   constructor(
     private alertCtrl: AlertController,
     public navCtrl: NavController,
-    public rest: RestProvider,
+    public rest: FeedProvider,
     public loadingController: LoadingController) {
 
   }
@@ -48,8 +48,22 @@ export class HomePage {
   presentFetchingError() {
     let alert = this.alertCtrl.create({
       title: 'Something went wrong',
-      subTitle: 'Please reload.',
-      buttons: ['Dismiss']
+      subTitle: 'Please try again.',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            //
+          }
+        },
+        {
+          text: 'Reload',
+          handler: data => {
+            this.refresh();
+          }
+        }
+      ]
     });
     alert.present();
   }

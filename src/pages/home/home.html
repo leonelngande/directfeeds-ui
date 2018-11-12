@@ -30,26 +30,19 @@
             <p>@{{tweet.userScreenName}}</p>
           </ion-item>
 
-          <!--<img src="assets/img/advance-card-bttf.png">-->
-
           <ion-card-content>
-            <p>{{tweet.tweet}}</p>
+            <div>{{tweet.tweet}}</div>
           </ion-card-content>
 
           <ion-row>
-            <!--<ion-col>
-              <button ion-button color="primary" clear small icon-start>
-                <ion-icon name='text'></ion-icon>
-                4 Comments
-              </button>
-            </ion-col>-->
-            <ion-col>
-              <button *ngIf="tweet.tweetUrls.length" ion-button color="primary" clear small icon-start>
+            <ion-col col-sm-10>
+              <a *ngIf="tweet.tweetUrls.length" target="_blank"
+                 href="{{tweet.tweetUrls}}" ion-button color="primary" clear small icon-start>
                 <ion-icon name='link'></ion-icon>
                 {{tweet.tweetUrls}}
-              </button>
+              </a>
             </ion-col>
-            <ion-col align-self-center text-center>
+            <ion-col align-self-center text-center  col-sm-2>
               <ion-note>
                 {{tweet.createdAt | timeAgo}}
               </ion-note>

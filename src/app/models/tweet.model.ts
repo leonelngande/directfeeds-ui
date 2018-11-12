@@ -1,4 +1,4 @@
-export class Tweet {
+export interface ITweet {
   createdAt: string;
   tweet: string;
   tweetUrls: string;
