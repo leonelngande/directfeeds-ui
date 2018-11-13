@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "DirectFeeds",
+  "short_name": "DirectFeeds",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
