@@ -15,7 +15,7 @@ export class InterceptorProvider implements HttpInterceptor {
 
   // Intercepts all HTTP requests!
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('inside interceptor');
+    // console.log('inside interceptor');
     return next.handle(request).pipe(
       catchError(err => {
         let errorText = '';
